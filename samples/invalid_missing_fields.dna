@@ -1,0 +1,18 @@
+project_dna_version: "1.0"
+project:
+  name: "BrokenApp"
+  description: ""
+  vision: ""
+  problem:
+    statement: ""
+  goals:
+    primary_goal: ""
+    success_metrics: []
+  tech_stack:
+    backend: ""
+  security:
+    auth: ""
+  tools:
+    allowed_tools: []
+  output_requirements:
+    must_include: []

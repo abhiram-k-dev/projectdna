@@ -1,0 +1,77 @@
+project_dna_version: "1.0"
+project:
+  name: "TodoFlow"
+  description: "A todo app with AI task prioritization"
+  vision: "Help users focus on the right tasks at the right time"
+  problem:
+    statement: "Users have too many tasks and cannot prioritize them"
+    why_it_exists: "No tool combines task management with AI reasoning"
+  users:
+    primary_users: ["individual developers", "students"]
+    secondary_users: ["small teams"]
+  goals:
+    primary_goal: "Users can add tasks and AI ranks them by urgency"
+    success_metrics:
+      - "Task creation works in under 2 seconds"
+      - "AI prioritization runs on every task add"
+      - "UI is mobile responsive"
+  constraints:
+    time_limit: "1 day"
+    budget_limit: "free tier only"
+    technical_limits: ["no paid APIs", "no GPU required"]
+  tech_stack:
+    frontend: "React + Tailwind CSS"
+    backend: "FastAPI Python"
+    database: "SQLite"
+    ai_models: ["Google Gemini 1.5 Flash"]
+    infra: "Docker + Vercel"
+  architecture:
+    pattern: "monolith"
+    structure_rules:
+      - "Frontend calls backend REST API only"
+      - "AI runs only on backend — never client side"
+  agents:
+    planner_agent:
+      enabled: true
+      responsibilities: ["create 3-stage build plan from DNA"]
+    builder_agent:
+      enabled: true
+      responsibilities: ["scaffold project", "write API", "write UI"]
+    tester_agent:
+      enabled: true
+      responsibilities: ["run unit tests", "check mobile layout"]
+    security_agent:
+      enabled: true
+      responsibilities: ["scan for hardcoded secrets", "check CORS"]
+  memory:
+    type: "short-term"
+    storage: "Redis"
+  tools:
+    allowed_tools: ["file_write", "bash_execute", "git_commit"]
+    forbidden_tools: ["system_exec", "network_scan", "env_modify"]
+  security:
+    auth: "JWT tokens"
+    permissions: ["read project dir", "write project dir"]
+    risks: ["public API without rate limiting"]
+    guardrails:
+      - "block hardcoded API keys"
+      - "block writes outside project directory"
+      - "block imports not in allowed_tools"
+  testing:
+    unit_tests: true
+    integration_tests: false
+    evaluation_strategy: "check all success_metrics pass"
+  deployment: "Vercel"
+  output_requirements:
+    format: "working web application"
+    must_include:
+      - "task creation form"
+      - "AI priority ranking display"
+      - "mobile responsive layout"
+      - "working FastAPI backend"
+  rules:
+    - "No hallucinated features"
+    - "Follow architecture strictly"
+    - "Fail fast on missing requirements"
+    - "Never skip security guardrails"
+    - "Eval before every deployment"

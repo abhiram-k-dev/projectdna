@@ -1,0 +1,78 @@
+project_dna_version: "1.0"
+project:
+  name: "BlogForge"
+  description: "An AI-assisted blog platform with auto-tagging"
+  vision: "Enable developers to publish technical content in minutes, not hours"
+  problem:
+    statement: "Writing and publishing technical blog posts is time-consuming"
+    why_it_exists: "No platform combines markdown editing with AI content enhancement"
+  users:
+    primary_users: ["software developers", "technical writers"]
+    secondary_users: ["developer advocates"]
+  goals:
+    primary_goal: "Users can write, enhance with AI, and publish in under 5 minutes"
+    success_metrics:
+      - "Post creation form submits in under 3 seconds"
+      - "AI tag suggestion appears within 2 seconds of typing"
+      - "Published post is accessible at a unique URL"
+  constraints:
+    time_limit: "2 days"
+    budget_limit: "free tier only"
+    technical_limits: ["no paid APIs", "no GPU required", "SQLite only"]
+  tech_stack:
+    frontend: "React + Tailwind CSS"
+    backend: "FastAPI Python"
+    database: "SQLite"
+    ai_models: ["Google Gemini 1.5 Flash"]
+    infra: "Docker + Vercel"
+  architecture:
+    pattern: "monolith"
+    structure_rules:
+      - "Frontend calls backend REST API only"
+      - "AI runs only on backend"
+      - "No server-side rendering"
+  agents:
+    planner_agent:
+      enabled: true
+      responsibilities: ["create 3-stage build plan from DNA"]
+    builder_agent:
+      enabled: true
+      responsibilities: ["scaffold project", "write API", "write UI", "write markdown editor"]
+    tester_agent:
+      enabled: true
+      responsibilities: ["test post creation", "test AI tagging"]
+    security_agent:
+      enabled: true
+      responsibilities: ["scan for secrets", "check auth on admin routes"]
+  memory:
+    type: "short-term"
+    storage: "Redis"
+  tools:
+    allowed_tools: ["file_write", "bash_execute", "git_commit"]
+    forbidden_tools: ["system_exec", "network_scan", "env_modify"]
+  security:
+    auth: "API key for admin routes"
+    permissions: ["read project dir", "write project dir"]
+    risks: ["public read access to all posts"]
+    guardrails:
+      - "block hardcoded API keys"
+      - "require auth on POST endpoints"
+  testing:
+    unit_tests: true
+    integration_tests: false
+    evaluation_strategy: "check all success_metrics pass"
+  deployment: "Vercel"
+  output_requirements:
+    format: "working web application"
+    must_include:
+      - "markdown post editor"
+      - "AI auto-tagging feature"
+      - "post list view"
+      - "individual post page"
+      - "working FastAPI backend"
+  rules:
+    - "No hallucinated features"
+    - "Follow architecture strictly"
+    - "Fail fast on missing requirements"
+    - "Never skip security guardrails"
+    - "Eval before every deployment"

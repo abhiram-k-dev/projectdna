@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "project-dna"
+version = "1.0.0"
+description = "Autonomous Multi-Agent Software Engineering Framework orchestrated via .dna specifications and MCP servers"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "pydantic>=2.0.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+]
+ai = [
+    "google-generativeai>=0.8.0",
+]
+
+[project.scripts]
+project-dna = "main:main"
